@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ════════════════════════════════════════════════════════════════
+     SEO — CAMBIA ESTO POR TUS DATOS
+     ════════════════════════════════════════════════════════════════ -->
+<title>Wilson Muñoz Serrano — Desarrollador de Software</title>
+<meta name="description" content="Portafolio de Wilson Muñoz Serrano. Tecnólogo en Desarrollo de Sistemas de Información y Software, próximo a graduarme como Ingeniero. Backend, APIs y aplicaciones web.">
+<meta name="author" content="Wilson Muñoz Serrano">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wilson Muñoz Serrano — Desarrollador de Software">
+<meta property="og:description" content="Proyectos de desarrollo web, APIs y sistemas de información.">
+<meta property="og:url" content="https://github.com/MunozS18">
+<meta property="og:image" content="https://tuusuario.github.io/portafolio/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230E1E30'/><text y='68' x='50' text-anchor='middle' font-size='52' font-family='sans-serif' font-weight='700' fill='%23F0B429'>&lt;/&gt;</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════ TOKENS ═══════════════ */
+:root{
+  --ink:#0B1A2B;        /* azul tinta, base oscura */
+  --ink-2:#102438;      /* superficie elevada */
+  --ink-3:#16304A;      /* superficie 2 */
+  --line:#24486C;       /* líneas de plano */
+  --line-soft:#1A3853;
+  --text:#E8EEF5;
+  --text-dim:#93A9BF;
+  --amber:#F0B429;      /* acento principal */
+  --teal:#48B5AE;       /* acento secundario */
+  --paper:#EDF1F5;
+  --radius:4px;
+  --maxw:1180px;
+  --font-display:"Bricolage Grotesque",Georgia,serif;
+  --font-body:"IBM Plex Sans",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+html[data-tema="claro"]{
+  --ink:#F2F5F8; --ink-2:#FFFFFF; --ink-3:#E7EDF3;
+  --line:#BCCCDB; --line-soft:#D6E0E9;
+  --text:#0B1A2B; --text-dim:#5A7186;
+  --amber:#B8790A; --teal:#1F7F79;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  background:var(--ink);color:var(--text);
+  font-family:var(--font-body);font-size:16.5px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+/* retícula de plano de fondo */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:64px 64px;opacity:.28;
+  mask-image:radial-gradient(ellipse 120% 80% at 50% 0%,#000 20%,transparent 78%);
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px}
+::selection{background:var(--amber);color:#0B1A2B}
+
+.env{width:min(100% - 2.5rem,var(--maxw));margin-inline:auto;position:relative;z-index:1}
+.salto{position:absolute;left:-9999px}
+.salto:focus{left:1rem;top:1rem;position:fixed;z-index:99;background:var(--amber);color:#0B1A2B;padding:.7rem 1.1rem;border-radius:var(--radius)}
+
+/* ═══════════════ TIPOGRAFÍA ═══════════════ */
+h1,h2,h3{font-family:var(--font-display);line-height:1.05;letter-spacing:-.025em;font-weight:700}
+h2{font-size:clamp(1.9rem,4.2vw,2.9rem);margin-bottom:.4rem}
+h3{font-size:1.22rem;letter-spacing:-.015em}
+p{max-width:68ch}
+
+.rotulo{
+  font-family:var(--font-mono);font-size:.74rem;color:var(--teal);
+  letter-spacing:.04em;display:flex;align-items:center;gap:.6rem;margin-bottom:1.6rem;
+}
+.rotulo::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* ═══════════════ NAV ═══════════════ */
+header{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--ink) 86%,transparent);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft);
+}
+.nav{display:flex;align-items:center;gap:1.4rem;height:64px}
+.marca{font-family:var(--font-display);font-weight:800;font-size:1.05rem;letter-spacing:-.03em;margin-right:auto;text-decoration:none}
+.marca span{color:var(--amber)}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{
+  text-decoration:none;font-size:.92rem;color:var(--text-dim);
+  padding-bottom:3px;border-bottom:1px solid transparent;transition:color .18s,border-color .18s;
+}
+.nav-links a:hover,.nav-links a.activo{color:var(--text);border-color:var(--amber)}
+.ctrl{display:flex;gap:.45rem}
+.ctrl button{
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:.34rem .6rem;font-family:var(--font-mono);font-size:.74rem;
+  color:var(--text-dim);transition:border-color .18s,color .18s;
+}
+.ctrl button:hover{border-color:var(--amber);color:var(--text)}
+.menu-btn{display:none}
+
+/* ═══════════════ HERO ═══════════════ */
+.hero{padding:clamp(3.5rem,9vw,7rem) 0 clamp(3rem,6vw,5rem);position:relative}
+.hero-rejilla{display:grid;grid-template-columns:1.35fr .8fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero-coord{font-family:var(--font-mono);font-size:.76rem;color:var(--teal);margin-bottom:1.5rem}
+.hero h1{
+  font-size:clamp(2.6rem,7.5vw,5.1rem);font-weight:800;
+  margin-bottom:1.1rem;text-wrap:balance;
+}
+.hero-rol{
+  font-size:clamp(1.05rem,2.3vw,1.35rem);color:var(--text);
+  font-weight:500;margin-bottom:1rem;
+  border-left:2px solid var(--amber);padding-left:1rem;
+}
+.hero-pitch{color:var(--text-dim);font-size:1.02rem;margin-bottom:2.1rem;max-width:56ch}
+.acciones{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.72rem 1.25rem;border-radius:var(--radius);
+  font-size:.92rem;font-weight:600;text-decoration:none;
+  border:1px solid var(--line);transition:transform .15s,background .18s,border-color .18s,color .18s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-1{background:var(--amber);color:#0B1A2B;border-color:var(--amber)}
+.btn-1:hover{background:color-mix(in srgb,var(--amber) 85%,#fff)}
+.btn-2:hover{border-color:var(--teal);color:var(--teal)}
+
+/* ficha del hero */
+.ficha{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--ink-2);position:relative;
+}
+.ficha::before,.ficha::after{
+  content:"";position:absolute;width:9px;height:9px;border:1px solid var(--amber);
+}
+.ficha::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.ficha::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.ficha-top{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.55rem .85rem;border-bottom:1px solid var(--line-soft);
+  font-family:var(--font-mono);font-size:.7rem;color:var(--text-dim);
+}
+.pulso{width:7px;height:7px;border-radius:50%;background:var(--teal);display:inline-block;margin-right:.4rem;animation:late 2.4s ease-in-out infinite}
+@keyframes late{0%,100%{opacity:1}50%{opacity:.25}}
+.monograma{
+  aspect-ratio:1/.82;display:grid;place-items:center;
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(3.4rem,8vw,4.8rem);letter-spacing:-.05em;
+  color:transparent;-webkit-text-stroke:1.5px var(--line);
+  background-image:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--amber) 9%,transparent),transparent 65%);
+}
+.monograma img{width:100%;height:100%;object-fit:cover}
+.ficha-datos{border-top:1px solid var(--line-soft);font-family:var(--font-mono);font-size:.76rem}
+.ficha-datos div{display:flex;justify-content:space-between;padding:.5rem .85rem;border-bottom:1px solid var(--line-soft)}
+.ficha-datos div:last-child{border:0}
+.ficha-datos dt{color:var(--text-dim)}
+.ficha-datos dd{color:var(--text)}
+
+/* cifras */
+.cifras{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  border:1px solid var(--line-soft);border-radius:var(--radius);
+  margin-top:clamp(2.5rem,5vw,3.5rem);background:var(--ink-2);
+}
+.cifra{padding:1.1rem 1.3rem;border-right:1px solid var(--line-soft)}
+.cifra:last-child{border-right:0}
+.cifra b{display:block;font-family:var(--font-display);font-size:1.85rem;font-weight:700;color:var(--amber);line-height:1}
+.cifra small{color:var(--text-dim);font-size:.82rem}
+
+/* ═══════════════ SECCIONES ═══════════════ */
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+.dos-col{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,5vw,4rem)}
+.bio p + p{margin-top:1rem}
+.bio p{color:var(--text-dim)}
+
+.stack-grupo{border-top:1px solid var(--line-soft);padding:1rem 0}
+.stack-grupo h3{font-size:.92rem;font-family:var(--font-body);font-weight:600;margin-bottom:.7rem;color:var(--text)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{
+  font-family:var(--font-mono);font-size:.78rem;padding:.24rem .6rem;
+  border:1px solid var(--line);border-radius:var(--radius);color:var(--text-dim);
+}
+
+/* ═══════════════ PROYECTOS ═══════════════ */
+.filtros{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2rem}
+.filtro{
+  font-family:var(--font-mono);font-size:.8rem;padding:.35rem .8rem;
+  border:1px solid var(--line);border-radius:var(--radius);color:var(--text-dim);
+  transition:.18s;
+}
+.filtro:hover{color:var(--text);border-color:var(--text-dim)}
+.filtro[aria-pressed="true"]{background:var(--amber);color:#0B1A2B;border-color:var(--amber);font-weight:500}
+
+.rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.2rem}
+.tarjeta{
+  border:1px solid var(--line-soft);border-radius:var(--radius);
+  background:var(--ink-2);display:flex;flex-direction:column;
+  text-align:left;transition:border-color .2s,transform .2s;
+  overflow:hidden;
+}
+.tarjeta:hover{border-color:var(--amber);transform:translateY(-3px)}
+.tarjeta-img{aspect-ratio:16/9;background:var(--ink-3);border-bottom:1px solid var(--line-soft);overflow:hidden;position:relative}
+.tarjeta-img img{width:100%;height:100%;object-fit:cover}
+.tarjeta-img .vacio{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--font-mono);font-size:.76rem;color:var(--text-dim);
+  background-image:repeating-linear-gradient(45deg,var(--line-soft) 0 1px,transparent 1px 11px);
+}
+.tarjeta-cuerpo{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;flex:1;gap:.6rem}
+.tarjeta-meta{font-family:var(--font-mono);font-size:.72rem;color:var(--teal)}
+.tarjeta p{font-size:.92rem;color:var(--text-dim);flex:1}
+.tarjeta-pie{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:.3rem}
+.ver{font-family:var(--font-mono);font-size:.78rem;color:var(--amber)}
+
+/* modal */
+dialog{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--ink-2);color:var(--text);
+  width:min(100% - 2rem,720px);padding:0;
+}
+dialog::backdrop{background:rgba(5,12,20,.78);backdrop-filter:blur(3px)}
+.modal-top{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;
+  padding:1.3rem 1.5rem;border-bottom:1px solid var(--line-soft);
+}
+.modal-cuerpo{padding:1.4rem 1.5rem 1.8rem;max-height:66vh;overflow:auto}
+.modal-cuerpo h4{
+  font-family:var(--font-mono);font-size:.76rem;color:var(--teal);
+  font-weight:500;margin-bottom:.3rem;
+}
+.modal-bloque + .modal-bloque{margin-top:1.15rem}
+.modal-cuerpo p{color:var(--text-dim);font-size:.95rem}
+.cerrar{font-size:1.4rem;line-height:1;color:var(--text-dim);padding:.2rem .5rem}
+.cerrar:hover{color:var(--amber)}
+
+/* ═══════════════ TRAYECTORIA ═══════════════ */
+.linea{position:relative;padding-left:2rem}
+.linea::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line)}
+.hito{position:relative;padding-bottom:2rem}
+.hito:last-child{padding-bottom:0}
+.hito::before{
+  content:"";position:absolute;left:-2rem;top:7px;width:11px;height:11px;
+  border-radius:50%;background:var(--ink);border:2px solid var(--line);
+}
+.hito.actual::before{border-color:var(--amber);background:var(--amber)}
+.hito-fecha{font-family:var(--font-mono);font-size:.76rem;color:var(--teal)}
+.hito h3{font-size:1.05rem;margin:.15rem 0 .1rem}
+.hito .lugar{font-size:.88rem;color:var(--text);margin-bottom:.4rem}
+.hito p{font-size:.93rem;color:var(--text-dim)}
+
+/* ═══════════════ CONTACTO ═══════════════ */
+.contacto{border-top:1px solid var(--line-soft)}
+.contacto-caja{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--ink-2);
+  padding:clamp(1.8rem,4vw,3rem);display:grid;grid-template-columns:1fr auto;
+  gap:2rem;align-items:center;
+}
+.contacto-caja h2{margin-bottom:.6rem}
+.contacto-caja p{color:var(--text-dim);margin-bottom:1.4rem}
+.enlaces{display:flex;flex-direction:column;gap:.5rem;font-family:var(--font-mono);font-size:.85rem}
+.enlaces a{text-decoration:none;color:var(--text-dim);display:flex;gap:.6rem;align-items:center}
+.enlaces a:hover{color:var(--amber)}
+
+footer{border-top:1px solid var(--line-soft);padding:1.6rem 0;font-size:.82rem;color:var(--text-dim)}
+.pie{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+
+/* ═══════════════ ENTRADA ═══════════════ */
+.revelar{opacity:0;transform:translateY(14px)}
+.revelar.visible{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .revelar{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media (max-width:900px){
+  .hero-rejilla,.dos-col,.contacto-caja{grid-template-columns:1fr}
+  .ficha{max-width:340px}
+  .cifra{border-right:0;border-bottom:1px solid var(--line-soft)}
+}
+@media (max-width:720px){
+  .nav-links{
+    display:none;position:absolute;top:64px;left:0;right:0;
+    flex-direction:column;gap:0;background:var(--ink-2);
+    border-bottom:1px solid var(--line);padding:.5rem 0;
+  }
+  .nav-links.abierto{display:flex}
+  .nav-links a{display:block;padding:.75rem 1.25rem;border:0}
+  .menu-btn{display:block}
+  .rejilla{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a class="salto" href="#proyectos">Ir a proyectos</a>
+
+<header>
+  <nav class="nav env" aria-label="Principal">
+    <a href="#inicio" class="marca">TN<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#perfil" data-t="nav1">Perfil</a></li>
+      <li><a href="#proyectos" data-t="nav2">Proyectos</a></li>
+      <li><a href="#trayectoria" data-t="nav3">Trayectoria</a></li>
+      <li><a href="#contacto" data-t="nav4">Contacto</a></li>
+    </ul>
+    <div class="ctrl">
+      <button id="btnIdioma" aria-label="Cambiar idioma">EN</button>
+      <button id="btnTema" aria-label="Cambiar tema">◐</button>
+      <button id="btnMenu" class="menu-btn" aria-label="Menú" aria-expanded="false">≡</button>
+    </div>
+  </nav>
+</header>
+
+<main id="inicio">
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero env">
+    <div class="hero-rejilla">
+      <div>
+        <p class="hero-coord" id="heroCoord"></p>
+        <h1 id="heroNombre"></h1>
+        <p class="hero-rol" id="heroRol"></p>
+        <p class="hero-pitch" id="heroPitch"></p>
+        <div class="acciones">
+          <a class="btn btn-1" href="#proyectos" data-t="cta1">Ver proyectos</a>
+          <a class="btn btn-2" id="ctaCv" href="#" data-t="cta2">Descargar CV</a>
+          <a class="btn btn-2" id="ctaGh" href="#" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <aside class="ficha">
+        <div class="ficha-top">
+          <span id="fichaId"></span>
+          <span><i class="pulso"></i><span data-t="disponible">Disponible</span></span>
+        </div>
+        <div class="monograma" id="monograma"></div>
+        <dl class="ficha-datos" id="fichaDatos"></dl>
+      </aside>
+    </div>
+    <div class="cifras" id="cifras"></div>
+  </section>
+
+  <!-- ════════ PERFIL ════════ -->
+  <section id="perfil" class="env revelar">
+    <p class="rotulo" data-t="rot1">01 — Perfil</p>
+    <div class="dos-col">
+      <div>
+        <h2 data-t="perfilTit">Qué hago y cómo trabajo</h2>
+      </div>
+      <div>
+        <div class="bio" id="bio"></div>
+        <div id="stack" style="margin-top:2rem"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ PROYECTOS ════════ -->
+  <section id="proyectos" class="env revelar">
+    <p class="rotulo" data-t="rot2">02 — Proyectos</p>
+    <h2 data-t="proyTit">Lo que he construido</h2>
+    <p style="color:var(--text-dim);margin-bottom:2rem" data-t="proySub">Cada ficha abre el detalle: problema, solución, mi rol y resultado.</p>
+    <div class="filtros" id="filtros" role="group" aria-label="Filtrar proyectos"></div>
+    <div class="rejilla" id="rejilla"></div>
+  </section>
+
+  <!-- ════════ TRAYECTORIA ════════ -->
+  <section id="trayectoria" class="env revelar">
+    <p class="rotulo" data-t="rot3">03 — Trayectoria</p>
+    <div class="dos-col">
+      <div><h2 data-t="trayTit">Formación y experiencia</h2></div>
+      <div class="linea" id="linea"></div>
+    </div>
+  </section>
+
+  <!-- ════════ CONTACTO ════════ -->
+  <section id="contacto" class="contacto env revelar">
+    <div class="contacto-caja">
+      <div>
+        <h2 data-t="contTit">Hablemos</h2>
+        <p data-t="contSub">Estoy buscando mi primera oportunidad como desarrollador. Respondo el mismo día.</p>
+        <a class="btn btn-1" id="ctaMail" href="#" data-t="cta3">Escríbeme</a>
+      </div>
+      <div class="enlaces" id="enlaces"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="env pie">
+    <span id="pieNombre"></span>
+    <span data-t="pieHecho">Hecho con HTML, CSS y JavaScript. Sin frameworks.</span>
+  </div>
+</footer>
+
+<dialog id="modal" aria-labelledby="modalTit">
+  <div class="modal-top">
+    <div>
+      <p class="tarjeta-meta" id="modalMeta"></p>
+      <h3 id="modalTit"></h3>
+    </div>
+    <button class="cerrar" id="modalCerrar" aria-label="Cerrar">×</button>
+  </div>
+  <div class="modal-cuerpo" id="modalCuerpo"></div>
+</dialog>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════
+   ⬇⬇⬇  ZONA EDITABLE — SOLO TIENES QUE CAMBIAR ESTE OBJETO  ⬇⬇⬇
+   ══════════════════════════════════════════════════════════════════ */
+const DATA = {
+
+  perfil: {
+    nombre: "Tu Nombre Completo",
+    iniciales: "TN",
+    foto: "",                                  // ej: "assets/foto.jpg" (déjalo vacío y muestra el monograma)
+    rol:   { es:"Desarrollador de software · Backend y aplicaciones web",
+             en:"Software developer · Backend and web applications" },
+    pitch: { es:"Tecnólogo en Desarrollo de Sistemas de Información y Software, a un semestre de graduarme como ingeniero. Construyo APIs, bases de datos y aplicaciones web que resuelven problemas reales, no ejercicios de clase.",
+             en:"Systems & Software Development technologist, one semester away from my engineering degree. I build APIs, databases and web apps that solve real problems, not classroom exercises." },
+    ubicacion: "Cartagena, Colombia",
+    disponibilidad: { es:"Remoto / Híbrido", en:"Remote / Hybrid" },
+    email: "tucorreo@gmail.com",
+    telefono: "+57 300 000 0000",
+    github: "https://github.com/tuusuario",
+    linkedin: "https://linkedin.com/in/tuusuario",
+    cv: "assets/CV-TuNombre-ATS.pdf"           // sube tu PDF a la carpeta assets/
+  },
+
+  // 3 o 4 cifras. Que sean verificables.
+  cifras: [
+    { valor:"8+",  etq:{ es:"Proyectos construidos", en:"Projects built" } },
+    { valor:"3",   etq:{ es:"Años programando",      en:"Years coding" } },
+    { valor:"2027",etq:{ es:"Grado en Ingeniería",   en:"Engineering degree" } },
+    { valor:"B2",  etq:{ es:"Inglés técnico",        en:"Technical English" } }
+  ],
+
+  bio: {
+    es: [ "Empecé en el desarrollo por la parte que más me gusta: entender cómo se conectan las piezas de un sistema. De ahí vengo — análisis, modelado de datos y backend — y desde ahí construyo hacia el frontend cuando el proyecto lo pide.",
+          "Trabajo con control de versiones desde el primer commit, escribo código que otra persona pueda leer, y documento lo que hago. Me interesan los equipos donde pueda aprender de gente con más recorrido y aportar desde el primer sprint." ],
+    en: [ "I got into development through the part I enjoy most: understanding how the pieces of a system connect. That's my background — analysis, data modeling and backend — and I build toward the frontend when the project calls for it.",
+          "I use version control from the first commit, write code someone else can read, and document what I do. I'm looking for a team where I can learn from more experienced people and contribute from the first sprint." ]
+  },
+
+  stack: [
+    { grupo:{ es:"Lenguajes", en:"Languages" },        items:["Java","JavaScript","Python","PHP","SQL","TypeScript"] },
+    { grupo:{ es:"Backend y datos", en:"Backend & data" }, items:["Spring Boot","Node.js","Express","MySQL","PostgreSQL","MongoDB","API REST"] },
+    { grupo:{ es:"Frontend", en:"Frontend" },          items:["React","HTML5","CSS3","Tailwind","Bootstrap"] },
+    { grupo:{ es:"Herramientas", en:"Tools" },         items:["Git","GitHub","Docker","Postman","Figma","Scrum"] }
+  ],
+
+  /* ── PROYECTOS ──────────────────────────────────────────────────
+     Copia y pega un bloque por cada proyecto.
+     "tags" alimenta los filtros automáticamente.
+     "imagen": ruta a una captura (ej "assets/proyecto1.png") o "" para placeholder.
+  ─────────────────────────────────────────────────────────────────*/
+  proyectos: [
+    {
+      nombre: "Sistema de gestión de inventarios",
+      anio: "2025",
+      tipo: { es:"Proyecto de grado", en:"Capstone project" },
+      tags: ["Backend","Full-stack"],
+      stack: ["Java","Spring Boot","MySQL","React","Docker"],
+      resumen: { es:"Plataforma web para controlar stock, movimientos y alertas de reposición en una distribuidora local.",
+                 en:"Web platform to control stock, movements and restock alerts for a local distributor." },
+      problema: { es:"La empresa llevaba el inventario en hojas de cálculo compartidas. Había duplicados, faltantes no detectados y nadie sabía quién había modificado qué.",
+                  en:"The company tracked inventory in shared spreadsheets. Duplicates, undetected shortages, and no traceability of changes." },
+      solucion: { es:"Diseñé el modelo relacional, construí una API REST con Spring Boot y autenticación por roles con JWT, y un panel en React con historial de movimientos y alertas automáticas por nivel mínimo.",
+                  en:"I designed the relational model, built a REST API with Spring Boot and JWT role-based auth, and a React dashboard with movement history and automatic low-stock alerts." },
+      rol: { es:"Desarrollo completo: análisis, base de datos, backend y frontend.",
+             en:"End-to-end: analysis, database, backend and frontend." },
+      impacto: { es:"Redujo el tiempo de cierre de inventario mensual de 2 días a 3 horas.",
+                 en:"Cut monthly inventory closing from 2 days to 3 hours." },
+      imagen: "",
+      repo: "https://github.com/tuusuario/proyecto-1",
+      demo: "https://tuusuario.github.io/proyecto-1"
+    },
+    {
+      nombre: "API de reservas para restaurantes",
+      anio: "2024",
+      tipo: { es:"Proyecto personal", en:"Side project" },
+      tags: ["Backend","API"],
+      stack: ["Node.js","Express","PostgreSQL","JWT","Swagger"],
+      resumen: { es:"API REST documentada para gestionar mesas, reservas y disponibilidad en tiempo real.",
+                 en:"Documented REST API to manage tables, bookings and real-time availability." },
+      problema: { es:"Quería entender a fondo cómo se maneja la concurrencia cuando dos clientes reservan la misma mesa al mismo tiempo.",
+                  en:"I wanted to understand concurrency handling when two clients book the same table simultaneously." },
+      solucion: { es:"Implementé bloqueo optimista a nivel de base de datos, validación de solapamiento de horarios y documentación interactiva con Swagger. Cobertura de pruebas del 78%.",
+                  en:"Optimistic locking at the DB level, time-overlap validation and interactive Swagger docs. 78% test coverage." },
+      rol: { es:"Diseño de la API, modelo de datos y pruebas.", en:"API design, data model and testing." },
+      impacto: { es:"Soporta 200 reservas concurrentes sin conflictos en pruebas de carga.",
+                 en:"Handles 200 concurrent bookings with no conflicts under load testing." },
+      imagen: "",
+      repo: "https://github.com/tuusuario/proyecto-2",
+      demo: ""
+    },
+    {
+      nombre: "Dashboard de indicadores académicos",
+      anio: "2024",
+      tipo: { es:"Trabajo académico", en:"Academic work" },
+      tags: ["Datos","Frontend"],
+      stack: ["Python","Pandas","PostgreSQL","Chart.js"],
+      resumen: { es:"Panel que cruza notas, asistencia y deserción para detectar estudiantes en riesgo.",
+                 en:"Dashboard cross-referencing grades, attendance and dropout to flag at-risk students." },
+      problema: { es:"Los datos existían en tres sistemas distintos y nadie los miraba juntos.",
+                  en:"Data lived in three separate systems and nobody looked at it together." },
+      solucion: { es:"Construí un proceso ETL en Python que unifica las fuentes, normaliza los datos y alimenta un dashboard con semáforo de riesgo por estudiante.",
+                  en:"An ETL process in Python that unifies sources, normalizes data and feeds a dashboard with a per-student risk indicator." },
+      rol: { es:"ETL, modelo de datos y visualización.", en:"ETL, data model and visualization." },
+      impacto: { es:"Identificó 40 estudiantes en riesgo que no aparecían en los reportes previos.",
+                 en:"Flagged 40 at-risk students invisible in previous reports." },
+      imagen: "",
+      repo: "https://github.com/tuusuario/proyecto-3",
+      demo: ""
+    }
+    // ➕ Duplica un bloque de aquí arriba para agregar más proyectos
+  ],
+
+  trayectoria: [
+    { periodo:"2025 — 2027", actual:true,
+      titulo:{ es:"Ingeniería de Sistemas", en:"Systems Engineering" },
+      lugar:"Universidad — Cartagena",
+      detalle:{ es:"Último semestre. Énfasis en arquitectura de software y bases de datos.",
+                en:"Final semester. Focus on software architecture and databases." } },
+    { periodo:"2022 — 2025",
+      titulo:{ es:"Tecnólogo en Desarrollo de Sistemas de Información y Software", en:"Technologist in Information Systems & Software Development" },
+      lugar:"SENA / Institución",
+      detalle:{ es:"Formación en análisis, diseño, desarrollo y pruebas de software.",
+                en:"Training in software analysis, design, development and testing." } },
+    { periodo:"2024",
+      titulo:{ es:"Práctica / Etapa productiva", en:"Internship" },
+      lugar:"Nombre de la empresa",
+      detalle:{ es:"Describe aquí qué construiste y con qué resultado medible.",
+                en:"Describe what you built and its measurable outcome." } }
+  ]
+};
+/* ══════════════ FIN DE LA ZONA EDITABLE ══════════════ */
+
+
+/* ─────────── Textos de interfaz (ES / EN) ─────────── */
+const UI = {
+  nav1:{es:"Perfil",en:"Profile"}, nav2:{es:"Proyectos",en:"Projects"},
+  nav3:{es:"Trayectoria",en:"Background"}, nav4:{es:"Contacto",en:"Contact"},
+  cta1:{es:"Ver proyectos",en:"View projects"}, cta2:{es:"Descargar CV",en:"Download CV"},
+  cta3:{es:"Escríbeme",en:"Email me"},
+  disponible:{es:"Disponible",en:"Available"},
+  rot1:{es:"01 — Perfil",en:"01 — Profile"}, rot2:{es:"02 — Proyectos",en:"02 — Projects"},
+  rot3:{es:"03 — Trayectoria",en:"03 — Background"},
+  perfilTit:{es:"Qué hago y cómo trabajo",en:"What I do and how I work"},
+  proyTit:{es:"Lo que he construido",en:"What I've built"},
+  proySub:{es:"Cada ficha abre el detalle: problema, solución, mi rol y resultado.",
+           en:"Each card opens the detail: problem, solution, my role and outcome."},
+  trayTit:{es:"Formación y experiencia",en:"Education and experience"},
+  contTit:{es:"Hablemos",en:"Let's talk"},
+  contSub:{es:"Estoy buscando mi primera oportunidad como desarrollador. Respondo el mismo día.",
+           en:"I'm looking for my first opportunity as a developer. I reply same day."},
+  pieHecho:{es:"Hecho con HTML, CSS y JavaScript. Sin frameworks.",
+            en:"Built with plain HTML, CSS and JavaScript. No frameworks."},
+  todos:{es:"Todos",en:"All"}, verDetalle:{es:"Ver detalle",en:"View detail"},
+  elProblema:{es:"El problema",en:"The problem"}, laSolucion:{es:"La solución",en:"The solution"},
+  miRol:{es:"Mi rol",en:"My role"}, resultado:{es:"Resultado",en:"Outcome"},
+  tecnologias:{es:"Tecnologías",en:"Tech stack"},
+  codigo:{es:"Ver código",en:"View code"}, verDemo:{es:"Ver demo",en:"Live demo"},
+  ubicacionL:{es:"Ubicación",en:"Location"}, modalidad:{es:"Modalidad",en:"Setup"},
+  estado:{es:"Estado",en:"Status"}, buscando:{es:"Buscando trabajo",en:"Open to work"},
+  sinImagen:{es:"captura pendiente",en:"screenshot pending"}
+};
+
+let idioma = "es";
+const $ = s => document.querySelector(s);
+const t = k => (UI[k] ? UI[k][idioma] : k);
+const tx = o => (typeof o === "string" ? o : o[idioma]);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ─────────── Render ─────────── */
+function render(){
+  const p = DATA.perfil;
+  document.documentElement.lang = idioma;
+
+  $("#heroCoord").textContent = `${p.ubicacion.toUpperCase()} · ${new Date().getFullYear()}`;
+  $("#heroNombre").textContent = p.nombre;
+  $("#heroRol").textContent = tx(p.rol);
+  $("#heroPitch").textContent = tx(p.pitch);
+  $(".marca").innerHTML = `${esc(p.iniciales)}<span>.</span>`;
+  $("#pieNombre").textContent = `© ${new Date().getFullYear()} ${p.nombre}`;
+  $("#ctaCv").href = p.cv;  $("#ctaCv").setAttribute("download","");
+  $("#ctaGh").href = p.github;
+  $("#ctaMail").href = `mailto:${p.email}?subject=${encodeURIComponent("Oportunidad para " + p.nombre)}`;
+  $("#fichaId").textContent = "// perfil";
+  $("#monograma").innerHTML = p.foto
+    ? `<img src="${esc(p.foto)}" alt="${esc(p.nombre)}">`
+    : esc(p.iniciales);
+
+  $("#fichaDatos").innerHTML = [
+    [t("ubicacionL"), p.ubicacion],
+    [t("modalidad"), tx(p.disponibilidad)],
+    [t("estado"), t("buscando")]
+  ].map(([k,v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
+
+  $("#cifras").innerHTML = DATA.cifras.map(c =>
+    `<div class="cifra"><b>${esc(c.valor)}</b><small>${esc(tx(c.etq))}</small></div>`).join("");
+
+  $("#bio").innerHTML = DATA.bio[idioma].map(x => `<p>${esc(x)}</p>`).join("");
+
+  $("#stack").innerHTML = DATA.stack.map(g =>
+    `<div class="stack-grupo"><h3>${esc(tx(g.grupo))}</h3>
+     <div class="chips">${g.items.map(i => `<span class="chip">${esc(i)}</span>`).join("")}</div></div>`).join("");
+
+  $("#linea").innerHTML = DATA.trayectoria.map(h =>
+    `<article class="hito${h.actual ? " actual" : ""}">
+       <p class="hito-fecha">${esc(h.periodo)}</p>
+       <h3>${esc(tx(h.titulo))}</h3>
+       <p class="lugar">${esc(h.lugar)}</p>
+       <p>${esc(tx(h.detalle))}</p>
+     </article>`).join("");
+
+  $("#enlaces").innerHTML = [
+    ["✉", p.email, `mailto:${p.email}`],
+    ["↗", "GitHub", p.github],
+    ["↗", "LinkedIn", p.linkedin],
+    ["☏", p.telefono, `tel:${p.telefono.replace(/\s/g,"")}`]
+  ].map(([ic,tt,href]) =>
+    `<a href="${esc(href)}" target="_blank" rel="noopener"><span>${ic}</span>${esc(tt)}</a>`).join("");
+
+  document.querySelectorAll("[data-t]").forEach(el => el.textContent = t(el.dataset.t));
+  $("#btnIdioma").textContent = idioma === "es" ? "EN" : "ES";
+
+  renderFiltros();
+  renderProyectos(filtroActivo);
+}
+
+/* ─────────── Proyectos + filtros ─────────── */
+let filtroActivo = "__all__";
+
+function renderFiltros(){
+  const tags = [...new Set(DATA.proyectos.flatMap(p => p.tags))];
+  $("#filtros").innerHTML =
+    [["__all__", t("todos")], ...tags.map(x => [x,x])].map(([v,l]) =>
+      `<button class="filtro" data-f="${esc(v)}" aria-pressed="${v===filtroActivo}">${esc(l)}</button>`).join("");
+  $("#filtros").querySelectorAll("button").forEach(b =>
+    b.onclick = () => { filtroActivo = b.dataset.f; renderFiltros(); renderProyectos(filtroActivo); });
+}
+
+function renderProyectos(f){
+  const lista = DATA.proyectos.filter(p => f === "__all__" || p.tags.includes(f));
+  $("#rejilla").innerHTML = lista.map((p,i) => {
+    const idx = DATA.proyectos.indexOf(p);
+    const img = p.imagen
+      ? `<img src="${esc(p.imagen)}" alt="${esc(p.nombre)}" loading="lazy">`
+      : `<span class="vacio">${esc(t("sinImagen"))}</span>`;
+    return `<button class="tarjeta" data-i="${idx}" aria-label="${esc(p.nombre)}">
+      <div class="tarjeta-img">${img}</div>
+      <div class="tarjeta-cuerpo">
+        <p class="tarjeta-meta">${esc(p.anio)} · ${esc(tx(p.tipo))}</p>
+        <h3>${esc(p.nombre)}</h3>
+        <p>${esc(tx(p.resumen))}</p>
+        <div class="chips">${p.stack.slice(0,4).map(s => `<span class="chip">${esc(s)}</span>`).join("")}</div>
+        <div class="tarjeta-pie"><span class="ver">${esc(t("verDetalle"))} →</span></div>
+      </div></button>`;
+  }).join("");
+  $("#rejilla").querySelectorAll(".tarjeta").forEach(c =>
+    c.onclick = () => abrirModal(DATA.proyectos[c.dataset.i]));
+}
+
+/* ─────────── Modal ─────────── */
+const modal = $("#modal");
+function abrirModal(p){
+  $("#modalMeta").textContent = `${p.anio} · ${tx(p.tipo)}`;
+  $("#modalTit").textContent = p.nombre;
+  const bloque = (titulo, texto) =>
+    `<div class="modal-bloque"><h4>${esc(titulo)}</h4><p>${esc(texto)}</p></div>`;
+  $("#modalCuerpo").innerHTML =
+    (p.imagen ? `<img src="${esc(p.imagen)}" alt="" style="border:1px solid var(--line-soft);border-radius:4px;margin-bottom:1.2rem">` : "") +
+    bloque(t("elProblema"), tx(p.problema)) +
+    bloque(t("laSolucion"), tx(p.solucion)) +
+    bloque(t("miRol"), tx(p.rol)) +
+    bloque(t("resultado"), tx(p.impacto)) +
+    `<div class="modal-bloque"><h4>${esc(t("tecnologias"))}</h4>
+       <div class="chips">${p.stack.map(s => `<span class="chip">${esc(s)}</span>`).join("")}</div></div>
+     <div class="acciones" style="margin-top:1.5rem">
+       ${p.repo ? `<a class="btn btn-2" href="${esc(p.repo)}" target="_blank" rel="noopener">${esc(t("codigo"))}</a>` : ""}
+       ${p.demo ? `<a class="btn btn-1" href="${esc(p.demo)}" target="_blank" rel="noopener">${esc(t("verDemo"))}</a>` : ""}
+     </div>`;
+  modal.showModal();
+}
+$("#modalCerrar").onclick = () => modal.close();
+modal.addEventListener("click", e => { if (e.target === modal) modal.close(); });
+
+/* ─────────── Controles ─────────── */
+$("#btnIdioma").onclick = () => { idioma = idioma === "es" ? "en" : "es"; render(); };
+
+const temaGuardado = () => { try { return localStorage.getItem("tema"); } catch { return null; } };
+const aplicarTema = tm => {
+  document.documentElement.dataset.tema = tm;
+  try { localStorage.setItem("tema", tm); } catch {}
+};
+aplicarTema(temaGuardado() || "oscuro");
+$("#btnTema").onclick = () =>
+  aplicarTema(document.documentElement.dataset.tema === "oscuro" ? "claro" : "oscuro");
+
+$("#btnMenu").onclick = e => {
+  const ul = $("#navLinks"), abierto = ul.classList.toggle("abierto");
+  e.currentTarget.setAttribute("aria-expanded", abierto);
+};
+$("#navLinks").onclick = e => { if (e.target.tagName === "A") $("#navLinks").classList.remove("abierto"); };
+
+/* ─────────── Revelado + nav activa ─────────── */
+render();
+
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); }
+}), { threshold:.12 });
+document.querySelectorAll(".revelar").forEach(el => io.observe(el));
+
+const spy = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    document.querySelectorAll(".nav-links a").forEach(a =>
+      a.classList.toggle("activo", a.getAttribute("href") === "#" + e.target.id));
+  }
+}), { rootMargin:"-45% 0px -50% 0px" });
+["perfil","proyectos","trayectoria","contacto"].forEach(id => {
+  const el = document.getElementById(id); if (el) spy.observe(el);
+});
+</script>
+</body>
+</html>
