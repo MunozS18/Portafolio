@@ -8,13 +8,13 @@
      SEO — CAMBIA ESTO POR TUS DATOS
      ════════════════════════════════════════════════════════════════ -->
 <title>Wilson Muñoz Serrano — Desarrollador de Software</title>
-<meta name="description" content="Portafolio de Wilson Muñoz Serrano. Tecnólogo en Desarrollo de Sistemas de Información y Software, próximo a graduarme como Ingeniero. Backend, APIs y aplicaciones web.">
+<meta name="description" content="Hola, soy Wilson Muñoz Serrano, un tecnólogo en Desarrollo de Sistemas de Información y Software, próximo a graduarme como Ingeniero. Backend, APIs y aplicaciones web.">
 <meta name="author" content="Wilson Muñoz Serrano">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Wilson Muñoz Serrano — Desarrollador de Software">
 <meta property="og:description" content="Proyectos de desarrollo web, APIs y sistemas de información.">
 <meta property="og:url" content="https://github.com/MunozS18">
-<meta property="og:image" content="https://tuusuario.github.io/portafolio/assets/og.png">
+<meta property="og:image" content="https://github.com/MunozS18/Portafolio/blob/main/Foto.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230E1E30'/><text y='68' x='50' text-anchor='middle' font-size='52' font-family='sans-serif' font-weight='700' fill='%23F0B429'>&lt;/&gt;</text></svg>">
 
@@ -398,7 +398,7 @@ footer{border-top:1px solid var(--line-soft);padding:1.6rem 0;font-size:.82rem;c
 <footer>
   <div class="env pie">
     <span id="pieNombre"></span>
-    <span data-t="pieHecho">Hecho con HTML, CSS y JavaScript. Sin frameworks.</span>
+    <span data-t="pieHecho">Hecho con HTML, CSS y JavaScript.</span>
   </div>
 </footer>
 
@@ -420,20 +420,19 @@ footer{border-top:1px solid var(--line-soft);padding:1.6rem 0;font-size:.82rem;c
 const DATA = {
 
   perfil: {
-    nombre: "Tu Nombre Completo",
-    iniciales: "TN",
-    foto: "",                                  // ej: "assets/foto.jpg" (déjalo vacío y muestra el monograma)
+    nombre: "Wilson Muñoz Serrano",
+    iniciales: "WM",
+    foto: "../assets/foto.png",                                  // ej: "assets/foto.jpg" (déjalo vacío y muestra el monograma)
     rol:   { es:"Desarrollador de software · Backend y aplicaciones web",
              en:"Software developer · Backend and web applications" },
     pitch: { es:"Tecnólogo en Desarrollo de Sistemas de Información y Software, a un semestre de graduarme como ingeniero. Construyo APIs, bases de datos y aplicaciones web que resuelven problemas reales, no ejercicios de clase.",
              en:"Systems & Software Development technologist, one semester away from my engineering degree. I build APIs, databases and web apps that solve real problems, not classroom exercises." },
     ubicacion: "Cartagena, Colombia",
     disponibilidad: { es:"Remoto / Híbrido", en:"Remote / Hybrid" },
-    email: "tucorreo@gmail.com",
-    telefono: "+57 300 000 0000",
-    github: "https://github.com/tuusuario",
-    linkedin: "https://linkedin.com/in/tuusuario",
-    cv: "assets/CV-TuNombre-ATS.pdf"           // sube tu PDF a la carpeta assets/
+    email: "munozserranow@gmail.com",
+    telefono: "+57 322 2254 131",
+    github: "https://github.com/MunozS18",
+    cv: "../assets/CV-WilsonMuñoz-ATS.pdf"           // sube tu PDF a la carpeta assets/
   },
 
   // 3 o 4 cifras. Que sean verificables.
@@ -441,7 +440,7 @@ const DATA = {
     { valor:"8+",  etq:{ es:"Proyectos construidos", en:"Projects built" } },
     { valor:"3",   etq:{ es:"Años programando",      en:"Years coding" } },
     { valor:"2027",etq:{ es:"Grado en Ingeniería",   en:"Engineering degree" } },
-    { valor:"B2",  etq:{ es:"Inglés técnico",        en:"Technical English" } }
+    { valor:"B1",  etq:{ es:"Inglés técnico",        en:"Technical English" } }
   ],
 
   bio: {
@@ -465,82 +464,189 @@ const DATA = {
   ─────────────────────────────────────────────────────────────────*/
   proyectos: [
     {
-      nombre: "Sistema de gestión de inventarios",
-      anio: "2025",
+      nombre: "Sistema Recomendador en Hoteles",
+      anio: "2026",
       tipo: { es:"Proyecto de grado", en:"Capstone project" },
       tags: ["Backend","Full-stack"],
-      stack: ["Java","Spring Boot","MySQL","React","Docker"],
-      resumen: { es:"Plataforma web para controlar stock, movimientos y alertas de reposición en una distribuidora local.",
+      stack: ["JavaScript","Python","MySQL", "HTML","CSS"],
+      resumen: { es:"Recomienda hoteles en Cartagena usando un algoritmo híbrido. Obtiene datos mediante scraping y ofrece búsqueda avanzada con autocompletado. Gestión completa de usuarios y panel de administración protegido.",
                  en:"Web platform to control stock, movements and restock alerts for a local distributor." },
-      problema: { es:"La empresa llevaba el inventario en hojas de cálculo compartidas. Había duplicados, faltantes no detectados y nadie sabía quién había modificado qué.",
+      problema: { es:"El crecimiento turístico de Cartagena contrasta con la falta de herramientas digitales, exponiendo a los visitantes a información incompleta y estafas, lo que perjudica su experiencia y la economía local.",
                   en:"The company tracked inventory in shared spreadsheets. Duplicates, undetected shortages, and no traceability of changes." },
-      solucion: { es:"Diseñé el modelo relacional, construí una API REST con Spring Boot y autenticación por roles con JWT, y un panel en React con historial de movimientos y alertas automáticas por nivel mínimo.",
+      solucion: { es:"Diseño de un sistema de recomendación personalizado de hoteles y servicios turísticos en Cartagena de Indias, adaptado a las preferencias y contexto de cada usuario.",
                   en:"I designed the relational model, built a REST API with Spring Boot and JWT role-based auth, and a React dashboard with movement history and automatic low-stock alerts." },
       rol: { es:"Desarrollo completo: análisis, base de datos, backend y frontend.",
              en:"End-to-end: analysis, database, backend and frontend." },
-      impacto: { es:"Redujo el tiempo de cierre de inventario mensual de 2 días a 3 horas.",
+      impacto: { es:"El sistema recomendador logró un impacto significativo en el turismo de Cartagena al personalizar la experiencia del viajero y elevar la competitividad de los hoteles locales.",
                  en:"Cut monthly inventory closing from 2 days to 3 hours." },
-      imagen: "",
-      repo: "https://github.com/tuusuario/proyecto-1",
-      demo: "https://tuusuario.github.io/proyecto-1"
+      imagen: "../assets/SistemaR.png",
+      repo: "https://github.com/MunozS18/Sistema_Recomendador.git",
+      
     },
+
     {
-      nombre: "API de reservas para restaurantes",
-      anio: "2024",
-      tipo: { es:"Proyecto personal", en:"Side project" },
+      nombre: "Calculadora de procesos de Redes",
+      anio: "2026",
+      tipo: { es:"Proyecto Académico", en:"Side project" },
       tags: ["Backend","API"],
-      stack: ["Node.js","Express","PostgreSQL","JWT","Swagger"],
-      resumen: { es:"API REST documentada para gestionar mesas, reservas y disponibilidad en tiempo real.",
+      stack: ["Python"],
+      resumen: { es:"Aplicación de escritorio en Python que planifica proyectos mediante la ruta crítica (CPM), calculando dependencias, tiempos y holguras, con visualización en diagramas de Gantt y red.",
                  en:"Documented REST API to manage tables, bookings and real-time availability." },
-      problema: { es:"Quería entender a fondo cómo se maneja la concurrencia cuando dos clientes reservan la misma mesa al mismo tiempo.",
+      problema: { es:"Fué un proyecto diseñado para entender los procesos de redes y la planificación de proyectos, permitiendo a los usuarios calcular rutas críticas y optimizar la gestión de tareas.",
                   en:"I wanted to understand concurrency handling when two clients book the same table simultaneously." },
-      solucion: { es:"Implementé bloqueo optimista a nivel de base de datos, validación de solapamiento de horarios y documentación interactiva con Swagger. Cobertura de pruebas del 78%.",
+      solucion: { es:"Diseñé un programa en Python que calcula la ruta de los porcesos de redes, muestra la ruta mas corta y muestr sus diagramas",
                   en:"Optimistic locking at the DB level, time-overlap validation and interactive Swagger docs. 78% test coverage." },
-      rol: { es:"Diseño de la API, modelo de datos y pruebas.", en:"API design, data model and testing." },
-      impacto: { es:"Soporta 200 reservas concurrentes sin conflictos en pruebas de carga.",
+      rol: { es:"Programador del proyecto" },
+      impacto: { es:"Hubo eficiencia en las rutas críticas y en la planificacion de los proyectos",
                  en:"Handles 200 concurrent bookings with no conflicts under load testing." },
-      imagen: "",
-      repo: "https://github.com/tuusuario/proyecto-2",
+      imagen: "../assets/calculadora de Procesos.png",
+      repo: "https://github.com/MunozS18/Calculadora-de-Procesos-de-Redes.git",
       demo: ""
     },
     {
-      nombre: "Dashboard de indicadores académicos",
+      nombre: "Calculadora de ecuaciones de recurrencia",
       anio: "2024",
       tipo: { es:"Trabajo académico", en:"Academic work" },
       tags: ["Datos","Frontend"],
-      stack: ["Python","Pandas","PostgreSQL","Chart.js"],
-      resumen: { es:"Panel que cruza notas, asistencia y deserción para detectar estudiantes en riesgo.",
+      stack: ["Python","JavaScript","HTML","CSS"],
+      resumen: { es:"Una calculadora completa en Python para resolver ecuaciones de recurrencia lineales homogéneas y no homogéneas, con interfaz de consola y capacidades de graficación.",
                  en:"Dashboard cross-referencing grades, attendance and dropout to flag at-risk students." },
-      problema: { es:"Los datos existían en tres sistemas distintos y nadie los miraba juntos.",
+      problema: { es:"Era un proyecto académico que buscaba resolver ecuaciones de recurrencia lineales homogéneas y no homogéneas, proporcionando a los estudiantes una herramienta para entender mejor estos conceptos matemáticos.",
                   en:"Data lived in three separate systems and nobody looked at it together." },
-      solucion: { es:"Construí un proceso ETL en Python que unifica las fuentes, normaliza los datos y alimenta un dashboard con semáforo de riesgo por estudiante.",
+      solucion: { es:"Implementé una calculadora en Python que resuelve ecuaciones de recurrencia lineales homogéneas y no homogéneas, con interfaz de consola y capacidades de graficación.",
                   en:"An ETL process in Python that unifies sources, normalizes data and feeds a dashboard with a per-student risk indicator." },
-      rol: { es:"ETL, modelo de datos y visualización.", en:"ETL, data model and visualization." },
+      rol: { es:"Programador del proyecto", en:"Project Developer" },
       impacto: { es:"Identificó 40 estudiantes en riesgo que no aparecían en los reportes previos.",
                  en:"Flagged 40 at-risk students invisible in previous reports." },
-      imagen: "",
-      repo: "https://github.com/tuusuario/proyecto-3",
+      imagen: "../assets/Calculadora de recurrencias.png",
+      repo: "https://github.com/MunozS18/Calculadora-de-Recurrencias.git",
       demo: ""
-    }
+    },
+
+    {
+      nombre: "Invitación a un evento",
+      anio: "2026",
+      tipo: { es:"Proyecto personal", en:"Personal project" },
+      tags: ["Datos","Frontend"],
+      stack: ["JavaScript","HTML","CSS"],
+      resumen: { es:"Una invitación digital interactiva para un evento, con animaciones y efectos visuales, que permite a los invitados confirmar su asistencia y obtener información relevante.",
+                 en:"Dashboard cross-referencing grades, attendance and dropout to flag at-risk students." },
+      problema: { es:"Es un proyecto personal que buscaba crear una invitación digital interactiva para un evento, proporcionando a los invitados una experiencia atractiva y moderna.",
+                  en:"Data lived in three separate systems and nobody looked at it together." },
+      solucion: { es:"Desarrollé una invitación digital interactiva con animaciones y efectos visuales, permitiendo a los invitados confirmar su asistencia y acceder a información relevante del evento.",
+                  en:"An ETL process in Python that unifies sources, normalizes data and feeds a dashboard with a per-student risk indicator." },
+      rol: { es:"Programador del proyecto", en:"Project Developer" },
+      impacto: { es:"Analizó los datos de asistencia y confirmación de los invitados, proporcionando información valiosa para la planificación del evento.",
+                 en:"Flagged 40 at-risk students invisible in previous reports." },
+      imagen: "../assets/Invitacion.png",
+      repo: "https://github.com/MunozS18/Invitacion-de-Valentina.git",
+      demo: ""
+    },
+
+    {
+      nombre: "OAV - Objeto de Aprendizaje Virtual",
+      anio: "2025",
+      tipo: { es:"Proyecto personal", en:"Personal project" },
+      tags: ["Datos","Frontend"],
+      stack: ["JavaScript","HTML","CSS", "Typescript"],
+      resumen: { es:"Una forma de aprender de manera interactiva y visual, con recursos multimedia y ejercicios prácticos, que permite a los estudiantes adquirir conocimientos de manera más efectiva.",
+                 en:"Dashboard cross-referencing grades, attendance and dropout to flag at-risk students." },
+      problema: { es:"Estudiantes presentan dificultades para comprender conceptos complejos, y los métodos tradicionales de enseñanza no siempre son efectivos para todos los estilos de aprendizaje.",
+                  en:"Data lived in three separate systems and nobody looked at it together." },
+      solucion: { es:"Diseñé un Objeto de Aprendizaje Virtual (OAV) que combina recursos multimedia, ejercicios interactivos y evaluaciones, facilitando la comprensión de conceptos complejos y adaptándose a diferentes estilos de aprendizaje.",
+                  en:"An ETL process in Python that unifies sources, normalizes data and feeds a dashboard with a per-student risk indicator." },
+      rol: { es:"Programador del proyecto", en:"Project Developer" },
+      impacto: { es:"Enseñó a los niños de manera más efectiva, mejorando su comprensión y retención de los conceptos presentados.",
+                 en:"Flagged 40 at-risk students invisible in previous reports." },
+      imagen: "../assets/OAV.png",
+      repo: "https://github.com/MunozS18/Objeto-De-Apredizaje-Virtual.git",
+      demo: ""
+    },
+
+     {
+      nombre: "Agroplantas Colombia",
+      anio: "2026",
+      tipo: { es:"Proyecto Académico", en:"Academic project" },
+      tags: ["Datos","Frontend"],
+      stack: ["JavaScript","HTML","CSS", "Typescript", "Dockerfile", "Python"],
+      resumen: { es:"Una aplicación que permite escanear y reconocer diferentes tipos de plantas mediante el uso de técnicas de visión por computadora y aprendizaje automático, proporcionando información detallada sobre cada especie.",
+                 en:"Dashboard cross-referencing grades, attendance and dropout to flag at-risk students." },
+      problema: { es:"Cultivos presentan dificultades para identificar y diagnosticar enfermedades, lo que afecta la productividad y calidad de los mismos.",
+                  en:"Data lived in three separate systems and nobody looked at it together." },
+      solucion: { es:"Diseñé un escáner de plantas que utiliza técnicas de visión por computadora y aprendizaje automático para identificar y diagnosticar enfermedades en diferentes especies, proporcionando información detallada y recomendaciones de tratamiento.",
+                  en:"An ETL process in Python that unifies sources, normalizes data and feeds a dashboard with a per-student risk indicator." },
+      rol: { es:"Programador del proyecto - Desarrollador Full Stack", en:"Project Developer - Full Stack Developer" },
+      impacto: { es:"Mejoró la identificación y diagnóstico de enfermedades en cultivos, aumentando la productividad y calidad de los mismos.",
+                 en:"Flagged 40 at-risk students invisible in previous reports." },
+      imagen: "../assets/Agroplantas.png",
+      repo: "https://github.com/MunozS18/PROTOTIPO-PLANTAS-IA.git",
+      demo: ""
+    },
+
+     {
+      nombre: "BikerLegend",
+      anio: "2024",
+      tipo: { es:"Proyecto Personal", en:"Personal project" },
+      tags: ["Datos","Frontend"],
+      stack: ["JavaScript","HTML","CSS"],
+      resumen: { es:"Una pagina web que permite a los usuarios explorar las especificaciones y características de diferentes modelos de motocicletas, proporcionando información detallada y comparaciones entre ellos.",
+                 en:"Dashboard cross-referencing grades, attendance and dropout to flag at-risk students." },
+      problema: { es:"Muchos usuarios tienen dificultdes para encontrar información confiable y detallada sobre diferentes modelos de motocicletas, lo que dificulta la toma de decisiones informadas al momento de comprar o comparar.",
+                  en:"Data lived in three separate systems and nobody looked at it together." },
+      solucion: { es:"Se diseñó una página web interactiva que permite a los usuarios explorar las especificaciones y características de diferentes modelos de motocicletas, con precios y filtros para facilitar la búsqueda de información relevante.",
+                  en:"An ETL process in Python that unifies sources, normalizes data and feeds a dashboard with a per-student risk indicator." },
+      rol: { es:"Programador del proyecto - Desarrollador Full Stack", en:"Project Developer - Full Stack Developer" },
+      impacto: { es:" Tuvó una mejora en la experiencia del usuario al facilitar la búsqueda de información sobre diferentes modelos de motocicletas.",
+                 en:"Flagged 40 at-risk students invisible in previous reports." },
+      imagen: "../assets/BikerLegend.png",
+      repo: "https://github.com/MunozS18/BikerLegend.git",
+      demo: ""
+    },
+
     // ➕ Duplica un bloque de aquí arriba para agregar más proyectos
   ],
 
   trayectoria: [
     { periodo:"2025 — 2027", actual:true,
       titulo:{ es:"Ingeniería de Sistemas", en:"Systems Engineering" },
-      lugar:"Universidad — Cartagena",
+      lugar:"Corporación Universitaria Rafael Núñez — Cartagena",
       detalle:{ es:"Último semestre. Énfasis en arquitectura de software y bases de datos.",
                 en:"Final semester. Focus on software architecture and databases." } },
+
+    {periodo:"2026",
+      titulo:{ es:"Cátedra de Ética", en:"Ethics Course" },
+      lugar:"Copnia — Cartagena",
+      detalle:{ es:"Formación en ética profesional y responsabilidad social.",
+                en:"Training in professional ethics and social responsibility." } },
+
+    {periodo:"2025 — 2026",
+      titulo:{ es:"Robótica: Electrónica y Mecánica", en:"Robotics: Electronics and Mechanics" },
+      lugar:"Profuturo — Cartagena",
+      detalle:{ es:"Formación en robótica, electrónica y mecánica aplicada a sistemas automatizados.",
+                en:"Training in robotics, electronics and mechanics applied to automated systems." } },
+
     { periodo:"2022 — 2025",
       titulo:{ es:"Tecnólogo en Desarrollo de Sistemas de Información y Software", en:"Technologist in Information Systems & Software Development" },
-      lugar:"SENA / Institución",
+      lugar:"Corporación Universitaria Rafael Núñez — Cartagena",
       detalle:{ es:"Formación en análisis, diseño, desarrollo y pruebas de software.",
                 en:"Training in software analysis, design, development and testing." } },
-    { periodo:"2024",
-      titulo:{ es:"Práctica / Etapa productiva", en:"Internship" },
-      lugar:"Nombre de la empresa",
-      detalle:{ es:"Describe aquí qué construiste y con qué resultado medible.",
-                en:"Describe what you built and its measurable outcome." } }
+    {periodo:"2023",
+      titulo:{ es:"Neurotecnología Educativa", en:"Educational Neurotechnology" },
+      lugar:"Politécnico de Colombia — Cartagena",
+      detalle:{ es:"Formación en neurociencia aplicada a la educación y el aprendizaje.",
+                en:"Training in neuroscience applied to education and learning." } },
+
+    { periodo:"2020 — 2022",
+      titulo:{ es:"Inglés conversacional", en:"English" },
+      lugar:"Fundación Ekir — Cartagena",
+      detalle:{ es:"Formación en lenguas extranjeras.",
+                en:"Training in foreign languages." } },
+
+      { periodo:"2015 — 2021",
+      titulo:{ es:"Bachiller Académico", en:"High School Diploma" },
+      lugar:"Colegio Clemente Manuel Zabala — Cartagena",
+      detalle:{ es:"Formación general con énfasis en ciencias y matemáticas.",  
+                en:"General education with emphasis on science and mathematics." } }      
   ]
 };
 /* ══════════════ FIN DE LA ZONA EDITABLE ══════════════ */
@@ -563,8 +669,8 @@ const UI = {
   contTit:{es:"Hablemos",en:"Let's talk"},
   contSub:{es:"Estoy buscando mi primera oportunidad como desarrollador. Respondo el mismo día.",
            en:"I'm looking for my first opportunity as a developer. I reply same day."},
-  pieHecho:{es:"Hecho con HTML, CSS y JavaScript. Sin frameworks.",
-            en:"Built with plain HTML, CSS and JavaScript. No frameworks."},
+  pieHecho:{es:"Hecho con HTML, CSS y JavaScript.",
+            en:"Built with plain HTML, CSS and JavaScript. "},
   todos:{es:"Todos",en:"All"}, verDetalle:{es:"Ver detalle",en:"View detail"},
   elProblema:{es:"El problema",en:"The problem"}, laSolucion:{es:"La solución",en:"The solution"},
   miRol:{es:"Mi rol",en:"My role"}, resultado:{es:"Resultado",en:"Outcome"},
@@ -626,7 +732,6 @@ function render(){
   $("#enlaces").innerHTML = [
     ["✉", p.email, `mailto:${p.email}`],
     ["↗", "GitHub", p.github],
-    ["↗", "LinkedIn", p.linkedin],
     ["☏", p.telefono, `tel:${p.telefono.replace(/\s/g,"")}`]
   ].map(([ic,tt,href]) =>
     `<a href="${esc(href)}" target="_blank" rel="noopener"><span>${ic}</span>${esc(tt)}</a>`).join("");
